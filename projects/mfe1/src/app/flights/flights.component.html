@@ -1,0 +1,18 @@
+<style>
+    #container {
+        border: 2px darkred dashed;
+        padding: 20px;
+    }
+</style>
+
+<div id="container">
+    <div>
+        <img src="../../../assets/angular.png" width="50">
+    </div>
+    <h1><span [style.color]="'#999'">mfe1 title:</span> {{ title$ | async }}</h1>
+    <p>Here the title is loaded the same way as the shell, and it works if you load the app by itself at
+      <a href="http://localhost:3000" target="_blank">localhost:3000</a>. <br><br>
+      We can see that the dispatched SetTitle action updated the title to (setting title...) successfully,
+      this is done synchronously in the action handler.<br><br> However, the returned observable never runs so the
+      title doesn't reach its final value.</p>
+</div>

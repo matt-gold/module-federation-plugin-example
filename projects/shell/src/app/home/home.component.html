@@ -1,1 +1,5 @@
-<h1>Welcome!</h1>
+<h1><span [style.color]="'#999'">shell title:</span> {{ title$ | async }}</h1>
+
+<p>The title is asynchronously loaded from the ngxs store after a short delay. <br><br>
+  There is a microfrontend at <a href="#" routerLink="/flights">/flights</a> which tries to do the same thing, but it fails.
+</p>

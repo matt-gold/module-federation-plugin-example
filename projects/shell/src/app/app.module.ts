@@ -4,25 +4,22 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { APP_ROUTES } from './app.routes';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { AuthLibModule } from 'auth-lib';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-// import { SharedLibModule } from 'projects/shared-lib/src/public-api';
+import { NgxsModule } from '@ngxs/store';
+import { ShellState } from './state';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 @NgModule({
   imports: [
     BrowserModule,
-    AuthLibModule,
-    // SharedLibModule,
-    HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    NgxsModule.forRoot([ShellState], {
+      developmentMode: true
+    }),
+    NgxsLoggerPluginModule.forRoot({ disabled: false }),
   ],
   declarations: [
     AppComponent,
-    HomeComponent,
-    NotFoundComponent
+    HomeComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
