@@ -6,4 +6,5 @@ simply clone, npmi, and run "npm start". The shell app will load at localhost:50
 
 The microfrontend will also load "standalone" in it's own local wrapper at localhost:3000, where there is no issue. The problem only occurs when running it inside of the shell app.  
 
+The problem is that the "mfe1" ngxs store (at the /flights route) does not subscribe to any observables returned by action handlers.
 I've added text to the home page that explains the problem in greater detail.
